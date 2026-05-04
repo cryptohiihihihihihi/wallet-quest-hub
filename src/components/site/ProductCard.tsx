@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
+import { BuyDialog } from "./BuyDialog";
 
 export type Product = {
   id: string;
@@ -57,9 +58,8 @@ export function ProductCard({ product }: { product: Product }) {
           ))}
         </ul>
 
-        <div className="mt-6 flex gap-2">
-          <Button variant="hero" className="flex-1">Add to cart</Button>
-          <Button variant="glow" size="default">Details</Button>
+        <div className="mt-6">
+          <BuyDialog product={product} />
         </div>
       </div>
     </div>
