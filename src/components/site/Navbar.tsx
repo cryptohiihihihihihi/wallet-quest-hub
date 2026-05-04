@@ -15,9 +15,6 @@ export function Navbar() {
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#products" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
-            <a href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Features</a>
-            <a href="#security" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Security</a>
-            <a href="#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="hero" size="sm" asChild>

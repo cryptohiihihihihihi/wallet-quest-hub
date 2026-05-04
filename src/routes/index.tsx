@@ -2,9 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/site/Navbar";
-import { Footer } from "@/components/site/Footer";
 import { ProductCard, type Product } from "@/components/site/ProductCard";
-import { ShieldCheck, Zap, Lock, Cpu, Globe, Fingerprint, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import heroImg from "@/assets/hero-wallet.jpg";
 import nano from "@/assets/wallet-nano.jpg";
 import pro from "@/assets/wallet-pro.jpg";
@@ -52,15 +51,6 @@ const products: Product[] = [
     features: ["NFC tap-to-sign", "Credit-card thin", "No battery needed", "Steel finish"],
     accent: "cyan",
   },
-];
-
-const features = [
-  { icon: ShieldCheck, title: "EAL6+ Secure Element", desc: "Bank-grade chip that keeps your private keys offline, always." },
-  { icon: Fingerprint, title: "Biometric unlock", desc: "Approve transactions with a single touch. Zero passwords." },
-  { icon: Cpu, title: "Open-source firmware", desc: "Audited by the community. Trust through transparency." },
-  { icon: Globe, title: "5,500+ assets", desc: "Bitcoin, Ethereum, Solana, and every major chain — natively." },
-  { icon: Zap, title: "Lightning fast", desc: "Sign transactions in under 200ms. Built for speed." },
-  { icon: Lock, title: "Recovery guaranteed", desc: "Shamir backup with up to 16 shares for true peace of mind." },
 ];
 
 function Index() {
