@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Bitcoin, Copy, Check } from "lucide-react";
+import { z } from "zod";
 import type { Product } from "./ProductCard";
+
+const emailSchema = z.string().trim().email().max(255);
 
 const chains = [
   { id: "btc", name: "Bitcoin", symbol: "BTC", icon: "₿", address: "bc1qvaultkey0xexamplepay2crypto7address5demoaddr", rate: 0.0000152 },
@@ -16,12 +21,25 @@ export function BuyDialog({ product }: { product: Product }) {
   const [copied, setCopied] = useState<"addr" | "amt" | null>(null);
   const [confirmed, setConfirmed] = useState(false);
 
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+
   const amount = (product.price * chain.rate).toFixed(chain.id === "usdc" ? 2 : 6);
 
   const copy = (val: string, kind: "addr" | "amt") => {
     navigator.clipboard.writeText(val);
     setCopied(kind);
     setTimeout(() => setCopied(null), 1500);
+  };
+
+  const handleConfirm = () => {
+    const result = emailSchema.safeParse(email);
+    if (!result.success) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+    setEmailError(null);
+    setConfirmed(true);
   };
 
   return (
