@@ -64,63 +64,22 @@ function Index() {
         <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
         <div className="pointer-events-none absolute right-0 top-40 h-[400px] w-[400px] rounded-full bg-accent/20 blur-[120px]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pb-24 pt-20 lg:grid-cols-2 lg:pt-28">
-          <div>
-            <Badge className="border border-primary/30 bg-primary/10 text-primary hover:bg-primary/15">
-              <Sparkles className="mr-1.5 h-3 w-3" /> New: Vault Card with NFC
-            </Badge>
-            <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Own your <span className="text-gradient">crypto</span>.<br />
-              Truly. Privately.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              Vaultkey hardware wallets keep your private keys offline in a tamper-proof secure element.
-              Beautifully engineered. Brutally secure.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button variant="hero" size="xl" asChild>
-                <a href="#products">Shop wallets <ArrowRight className="h-4 w-4" /></a>
-              </Button>
-              <Button variant="glow" size="xl" asChild>
-                <a href="#features">How it works</a>
-              </Button>
-            </div>
-
-            <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
-              {[
-                { v: "1.2M+", l: "Wallets shipped" },
-                { v: "$48B", l: "Assets secured" },
-                { v: "0", l: "Breaches. Ever." },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div className="font-display text-2xl font-bold text-gradient">{s.v}</div>
-                  <div className="mt-1 text-xs text-muted-foreground">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 -z-10 bg-gradient-primary opacity-30 blur-3xl" />
-            <div className="relative animate-float overflow-hidden rounded-3xl glass shadow-elevated">
-              <img
-                src={heroImg}
-                alt="Premium Vaultkey hardware crypto wallet"
-                width={1536}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUSTED BY */}
-      <section className="border-y border-border/40 bg-background/40 py-10">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Trusted by holders worldwide</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 font-display text-xl font-bold text-muted-foreground/60">
-            <span>BITCOIN</span><span>ETHEREUM</span><span>SOLANA</span><span>POLYGON</span><span>AVALANCHE</span><span>ARBITRUM</span>
+        <div className="relative mx-auto max-w-3xl px-6 pb-20 pt-20 text-center lg:pt-28">
+          <Badge className="border border-primary/30 bg-primary/10 text-primary hover:bg-primary/15">
+            <Sparkles className="mr-1.5 h-3 w-3" /> New: Vault Card with NFC
+          </Badge>
+          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            Own your <span className="text-gradient">crypto</span>.<br />
+            Truly. Privately.
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+            Vaultkey hardware wallets keep your private keys offline in a tamper-proof secure element.
+            Beautifully engineered. Brutally secure.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button variant="hero" size="xl" asChild>
+              <a href="#products">Shop wallets <ArrowRight className="h-4 w-4" /></a>
+            </Button>
           </div>
         </div>
       </section>
