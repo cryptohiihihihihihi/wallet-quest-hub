@@ -43,7 +43,7 @@ export function BuyDialog({ product }: { product: Product }) {
   };
 
   return (
-    <Dialog onOpenChange={() => { setConfirmed(false); setChain(chains[0]); }}>
+    <Dialog onOpenChange={() => { setConfirmed(false); setChain(chains[0]); setEmail(""); setEmailError(null); }}>
       <DialogTrigger asChild>
         <Button variant="hero" className="flex-1">
           <Bitcoin className="h-4 w-4" /> Buy now
@@ -99,11 +99,25 @@ export function BuyDialog({ product }: { product: Product }) {
               </div>
             </div>
 
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-xs uppercase tracking-wider text-muted-foreground">Email for order confirmation</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                maxLength={255}
+                onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(null); }}
+                className="bg-secondary/40 border-border"
+              />
+              {emailError && <p className="text-xs text-destructive">{emailError}</p>}
+            </div>
+
             <p className="text-xs text-muted-foreground">
               After sending, click below and we'll verify the transaction on-chain. Free shipping worldwide.
             </p>
 
-            <Button variant="hero" size="lg" className="w-full" onClick={() => setConfirmed(true)}>
+            <Button variant="hero" size="lg" className="w-full" onClick={handleConfirm}>
               I've sent the payment
             </Button>
           </div>
