@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/site/Navbar";
 import { ProductCard, type Product } from "@/components/site/ProductCard";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroImg from "@/assets/hero-wallet.jpg";
 import nano from "@/assets/wallet-nano.jpg";
 import pro from "@/assets/wallet-pro.jpg";
 import card from "@/assets/wallet-card.jpg";
