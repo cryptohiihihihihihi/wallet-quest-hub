@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Wallet, ShoppingCart } from "lucide-react";
+import { Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
@@ -15,16 +15,11 @@ export function Navbar() {
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#products" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
-            <a href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Features</a>
-            <a href="#security" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Security</a>
-            <a href="#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">2</span>
+            <Button variant="hero" size="sm" asChild>
+              <a href="#products">Shop now</a>
             </Button>
-            <Button variant="hero" size="sm" className="hidden sm:inline-flex">Shop now</Button>
           </div>
         </nav>
       </div>
