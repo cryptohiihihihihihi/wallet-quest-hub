@@ -49,8 +49,8 @@ export function BuyDialog({ product }: { product: Product }) {
           <Bitcoin className="h-4 w-4" /> Buy now
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md glass border-border/60">
-        <DialogHeader>
+      <DialogContent className="max-w-md glass border-border/60 p-6">
+        <DialogHeader className="space-y-2">
           <DialogTitle className="font-display text-2xl">
             {confirmed ? "Order received" : `Pay with crypto`}
           </DialogTitle>
@@ -62,45 +62,45 @@ export function BuyDialog({ product }: { product: Product }) {
         </DialogHeader>
 
         {!confirmed ? (
-          <div className="space-y-5">
+          <div className="space-y-4">
             <div>
-              <div className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">Select asset</div>
+              <div className="mb-2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Select asset</div>
               <div className="grid grid-cols-4 gap-2">
                 {chains.map((c) => (
                   <button
                     key={c.id}
                     onClick={() => setChain(c)}
-                    className={`rounded-lg border p-3 text-center transition-all ${chain.id === c.id ? "border-primary bg-primary/10 shadow-glow" : "border-border bg-secondary/40 hover:border-primary/50"}`}
+                    className={`rounded-xl border p-2.5 text-center transition-all ${chain.id === c.id ? "border-primary/70 bg-primary/10 shadow-glow" : "border-border/60 bg-secondary/30 hover:border-primary/40 hover:bg-secondary/60"}`}
                   >
-                    <div className="text-lg font-bold">{c.icon}</div>
-                    <div className="mt-1 text-[10px] font-medium text-muted-foreground">{c.symbol}</div>
+                    <div className="text-base font-bold">{c.icon}</div>
+                    <div className="mt-0.5 text-[10px] font-medium text-muted-foreground">{c.symbol}</div>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-xl bg-secondary/40 p-4">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Send exactly</div>
+            <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
+              <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Send exactly</div>
               <div className="mt-1 flex items-center justify-between gap-2">
-                <div className="font-display text-2xl font-bold text-gradient">{amount} {chain.symbol}</div>
-                <Button variant="ghost" size="icon" onClick={() => copy(amount, "amt")}>
+                <div className="font-display text-xl font-bold text-gradient truncate">{amount} {chain.symbol}</div>
+                <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" onClick={() => copy(amount, "amt")}>
                   {copied === "amt" ? <Check className="h-4 w-4 text-primary" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
             </div>
 
-            <div className="rounded-xl bg-secondary/40 p-4">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">To {chain.name} address</div>
-              <div className="mt-1 flex items-center justify-between gap-2">
-                <code className="truncate font-mono text-sm">{chain.address}</code>
-                <Button variant="ghost" size="icon" onClick={() => copy(chain.address, "addr")}>
+            <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
+              <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">To {chain.name} address</div>
+              <div className="mt-1 flex items-center gap-2 min-w-0">
+                <code className="flex-1 truncate font-mono text-xs text-foreground/90 min-w-0">{chain.address}</code>
+                <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" onClick={() => copy(chain.address, "addr")}>
                   {copied === "addr" ? <Check className="h-4 w-4 text-primary" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-xs uppercase tracking-wider text-muted-foreground">Email for order confirmation</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="email" className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Email for order confirmation</Label>
               <Input
                 id="email"
                 type="email"
@@ -108,14 +108,10 @@ export function BuyDialog({ product }: { product: Product }) {
                 value={email}
                 maxLength={255}
                 onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(null); }}
-                className="bg-secondary/40 border-border"
+                className="h-10 bg-secondary/40 border-border/60"
               />
               {emailError && <p className="text-xs text-destructive">{emailError}</p>}
             </div>
-
-            <p className="text-xs text-muted-foreground">
-              After sending, click below and we'll verify the transaction on-chain. Free shipping worldwide.
-            </p>
 
             <Button variant="hero" size="lg" className="w-full" onClick={handleConfirm}>
               I've sent the payment
