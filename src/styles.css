@@ -53,10 +53,10 @@
   --accent: oklch(0.7 0.22 290);            /* violet */
   --accent-foreground: oklch(0.98 0.005 250);
 
-  --secondary: oklch(0.22 0.03 255);
+  --secondary: oklch(0.14 0.025 255);
   --secondary-foreground: oklch(0.98 0.005 250);
 
-  --muted: oklch(0.22 0.025 255);
+  --muted: oklch(0.14 0.02 255);
   --muted-foreground: oklch(0.65 0.02 255);
 
   --destructive: oklch(0.6 0.24 25);
