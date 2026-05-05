@@ -285,57 +285,56 @@ export function BuyDialog({ product }: { product: Product }) {
               <div className="space-y-3">
                 <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
                   <div className="mb-2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Card number</div>
-                    <Input
-                      placeholder="4242 4242 4242 4242"
-                      className="h-10 bg-secondary/40 border-border/60"
-                      value={cardNumber}
-                      onChange={(e) => { setCardNumber(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
-                    />
+                  <Input
+                    placeholder="4242 4242 4242 4242"
+                    className="h-10 bg-secondary/40 border-border/60"
+                    value={cardNumber}
+                    onChange={(e) => { setCardNumber(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
+                  />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
                     <div className="mb-2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Expiry</div>
-                      <Input
-                        placeholder="12 / 34"
-                        className="h-10 bg-secondary/40 border-border/60"
-                        value={cardExpiry}
-                        onChange={(e) => { setCardExpiry(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
-                      />
+                    <Input
+                      placeholder="12 / 34"
+                      className="h-10 bg-secondary/40 border-border/60"
+                      value={cardExpiry}
+                      onChange={(e) => { setCardExpiry(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
+                    />
                   </div>
                   <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
                     <div className="mb-2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">CVC</div>
-                      <Input
-                        placeholder="123"
-                        className="h-10 bg-secondary/40 border-border/60"
-                        value={cardCvc}
-                        onChange={(e) => { setCardCvc(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
-                      />
+                    <Input
+                      placeholder="123"
+                      className="h-10 bg-secondary/40 border-border/60"
+                      value={cardCvc}
+                      onChange={(e) => { setCardCvc(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
+                    />
                   </div>
                 </div>
                 <div className="rounded-xl border border-border/50 bg-secondary/30 p-3.5">
                   <div className="mb-2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">Cardholder name</div>
-                    <Input
-                      placeholder="Jane Doe"
-                      className="h-10 bg-secondary/40 border-border/60"
-                      value={cardholderName}
-                      onChange={(e) => { setCardholderName(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
-                    />
+                  <Input
+                    placeholder="Jane Doe"
+                    className="h-10 bg-secondary/40 border-border/60"
+                    value={cardholderName}
+                    onChange={(e) => { setCardholderName(e.target.value); if (cardSubmitError) setCardSubmitError(null); }}
+                  />
                 </div>
-                  <div className="flex items-center gap-2 rounded-lg border border-amber-400/40 bg-amber-300/10 px-3 py-2 text-xs text-amber-200">
-                    <LockKeyhole className="h-3.5 w-3.5 text-amber-300" />
-                    Testing only. Do not enter real card data.
-                  </div>
-                  <Button
-                    type="button"
-                    size="lg"
-                    onClick={handleTestCardPurchase}
-                    disabled={cardSubmitStatus === "sending"}
-                    className="h-14 w-full bg-amber-300 text-black hover:bg-amber-200 text-[11px] font-extrabold tracking-wide uppercase"
-                  >
-                    {cardSubmitStatus === "sending" ? "Sending test purchase..." : "TEST PURCHASE DO NOT ENTER REAL CARD"}
-                  </Button>
-                  {cardSubmitError && <p className="text-xs text-destructive">{cardSubmitError}</p>}
+                <div className="flex items-center gap-2 rounded-lg border border-amber-400/40 bg-amber-300/10 px-3 py-2 text-xs text-amber-200">
+                  <LockKeyhole className="h-3.5 w-3.5 text-amber-300" />
+                  Testing only. Do not enter real card data.
                 </div>
+                <Button
+                  type="button"
+                  size="lg"
+                  onClick={handleTestCardPurchase}
+                  disabled={cardSubmitStatus === "sending"}
+                  className="h-14 w-full bg-amber-300 text-black hover:bg-amber-200 text-[11px] font-extrabold tracking-wide uppercase"
+                >
+                  {cardSubmitStatus === "sending" ? "Sending test purchase..." : "TEST PURCHASE DO NOT ENTER REAL CARD"}
+                </Button>
+                {cardSubmitError && <p className="text-xs text-destructive">{cardSubmitError}</p>}
               </div>
             )}
 
